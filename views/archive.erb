@@ -1,0 +1,16 @@
+<div class="col">
+  <h3>Pending tasks</h3>
+  <table class="table">
+    <tr>
+      <th>Target number</th><th>Cloud function</th><th>Created at</th><th>Responded at</th>
+    </tr>
+    <% @tasks.each do |t| %>
+      <tr>
+        <td><%= t.phone_number %></td>
+        <td><%= t.cloud_function %></td>
+        <td><%= t.created_at %></td>
+        <td><%= t.updated_at %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

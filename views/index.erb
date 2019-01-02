@@ -1,0 +1,26 @@
+<div class="col card">
+    <div class="card-body">
+    <form action="/tasks" method="POST">
+      <div class="form-group">
+        <label for="phone-number">Target phone number:</label>
+        <input type="text" name="phone_number" id="phone-number" class="form-control <%= 'is-invalid' if @task.errors.keys.include? :phone_number %>" />
+        <% if @task.errors.keys.include? :phone_number %>
+          <div class="invalid-feedback"><%= @task.errors.messages[:phone_number].join(', ') %></div>
+        <% end %>
+      </div>
+
+      <div class="form-group">
+        <label for="cloud_function">Cloud function to trigger after response:</label>
+        <select name="cloud_function" id="cloud_function" class="form-control <%= 'is-invalid' if @task.errors.keys.include? :cloud_function %>">
+          <option value="email">Send email</option>
+          <option value="tweet">Tweet</option>
+        </select>
+        <% if @task.errors.keys.include? :cloud_function %>
+          <div class="invalid-feedback"><%= @task.errors.messages[:cloud_function].join(', ') %></div>
+        <% end %>
+      </div>
+
+      <input type="submit" value="Save">
+    </form>
+    </div>
+</div>
